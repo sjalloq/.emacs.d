@@ -74,3 +74,25 @@
   (verilog-insert-string-newline "// End:" 2)
   )
 
+(defun verilog-insert-dff ()
+  "Insert a Verilog D-type FF"
+  (interactive)
+  (setq start (point))
+  (setq registerName (read-string "Enter register name:"))
+  (verilog-insert-string-newline "always@(posedge clk)")
+  (verilog-insert-string-newline (concat "if(" registerName "_en)"))
+  (verilog-insert-string-newline (concat registerName "_r <= " registerName "_nxt;"))
+  )
+
+(defun verilog-insert-dffr ()
+  "Insert a Verilog D-type FF with async reset"
+  (interactive)
+  (setq start (point))
+  (setq registerName (read-string "Enter register name:"))
+  (verilog-insert-string-newline "always@(posedge clk or negedge reset_n)")
+  (verilog-insert-string-newline "if(!reset_n)")
+  (verilog-insert-string-newline (concat registerName "_r <= {{1'b0}};"))
+  (verilog-insert-string-newline "else")
+  (verilog-insert-string-newline (concat "if(" registerName "_en)"))
+  (verilog-insert-string-newline (concat registerName "_r <= " registerName "_nxt;"))
+  )
