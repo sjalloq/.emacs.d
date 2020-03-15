@@ -98,8 +98,8 @@
 (define-key verilog-minor-mode-map (kbd "<f1>" ) 'verilog-insert-module)
 (define-key verilog-minor-mode-map (kbd "<f11>") 'verilog-comment-region)
 (define-key verilog-minor-mode-map (kbd "<f12>") 'verilog-uncomment-region)
-
 (define-key verilog-minor-mode-map (kbd "<f10>") 'revert-buffer)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -112,10 +112,12 @@
  '(custom-enabled-themes (quote (dracula)))
  '(custom-safe-themes
    (quote
-    ("0301a26dedfda81ca220ad6169588b5408884e7b4a5363f3e6a0e98d5c65a257" default))))
+    ("0301a26dedfda81ca220ad6169588b5408884e7b4a5363f3e6a0e98d5c65a257" default)))
+ '(inhibit-startup-screen t)
+ '(show-paren-mode t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(default ((t (:family "DejaVu Sans Mono" :foundry "PfEd" :slant normal :weight normal :height 90 :width normal)))))
